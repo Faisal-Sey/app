@@ -1,0 +1,4 @@
+flask
+firebase_admin
+future_strings
+bpy

@@ -1,4 +1,4 @@
-FROM python:2.7-stretch
+FROM python:3.0-stretch
 RUN apt-get update -y
 RUN apt-get install python build-essential python-dev python-pip python-setuptools -y
 COPY . /app

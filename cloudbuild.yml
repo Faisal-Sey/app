@@ -1,7 +1,7 @@
 steps:
   # build & push the container image
 - name: "gcr.io/zipup-74430/createmodel-00002-roz"
-  args: ["--cache=true", "--cache-ttl=48h", "--destination=gcr.io/zipup-74430/helloworld@sha256:bacac3bad1a5798499c82db96d9d863a7356b4ed3d8f0093fa4f1aa6a6f687b3"]
+  args: ["--cache=true", "--cache-ttl=48h", "--destination=gcr.io/zipup-74430/createmodel"]
   # Deploy container image to Cloud Run
 - name: "gcr.io/cloud-builders/gcloud"
-  args: ['beta', 'run', 'deploy', 'createmodel', '--image', 'gcr.io/zipup-74430/helloworld@sha256:bacac3bad1a5798499c82db96d9d863a7356b4ed3d8f0093fa4f1aa6a6f687b3', '--region', 'us-central1', '--allow-unauthenticated', '--platform', 'managed']
+  args: ['beta', 'run', 'deploy', 'createmodel', '--image', 'gcr.io/zipup-74430/createmodel', '--region', 'us-central1', '--allow-unauthenticated', '--platform', 'managed']

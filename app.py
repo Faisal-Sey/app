@@ -15,10 +15,10 @@ def main():
     try:
         blender_file = data["blender_file"]
         image_file = data["image_file"]
-        path = os.path.join(
+        """path = os.path.join(
             media_folder, str(datetime.today().date(), blender_file.split("/")[-1])
         )
-        subprocess.call(["py", "-3.7", "script.py", blender_file, image_file, path])
+        subprocess.call(["py", "-3.7", "script.py", blender_file, image_file, path])"""
         return {
             "success": True,
             "error": False,

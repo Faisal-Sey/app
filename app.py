@@ -2,6 +2,8 @@ from flask import Flask, request
 import os
 import datetime
 import subprocess
+import firebase_admin
+from firebase_admin import credentials, firestore
 
 app = Flask(__name__)
 app.debug = True
@@ -19,6 +21,15 @@ def main():
             media_folder, str(datetime.today().date(), blender_file.split("/")[-1])
         )
         subprocess.call(["py", "-3.7", "script.py", blender_file, image_file, path])"""
+
+        cred = credentials.Certificate("serviceAccountKey.json")
+        firebase_admin.initialize_app(cred)
+        firestore_db = firestore.client()
+        created = firestore_db.collection(u'bagtypes').add({'blenderfile': f'{blende_file}', 'imagefile': f'{image_file}'})
+        if created:
+            print("yes")
+        else:
+            print("no")
         return {
             "success": True,
             "error": False,
